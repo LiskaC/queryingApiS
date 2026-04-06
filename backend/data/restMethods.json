@@ -1,0 +1,72 @@
+[
+  {
+    "method": "GET",
+    "description": "Retrieve a resource or a list of resources from the server.",
+    "safe": true,
+    "idempotent": true,
+    "template": "GET /users",
+    "example": "GET /users",
+    "body": null,
+    "response": { "status": 200, "body": "[{ \"id\": 1, \"name\": \"Ada\", \"role\": \"engineer\" }, { \"id\": 2, \"name\": \"Grace\", \"role\": \"engineer\" }]" }
+  },
+  {
+    "method": "POST",
+    "description": "Create a new resource on the server.",
+    "safe": false,
+    "idempotent": false,
+    "template": "POST /users",
+    "example": "POST /users",
+    "body": "{ \"name\": \"Ada\", \"role\": \"engineer\" }",
+    "response": { "status": 201, "body": "{ \"id\": 3, \"name\": \"Ada\", \"role\": \"engineer\" }" }
+  },
+  {
+    "method": "PUT",
+    "description": "Replace an existing resource entirely with the provided data.",
+    "safe": false,
+    "idempotent": true,
+    "template": "PUT /users/{id}",
+    "example": "PUT /users/42",
+    "body": "{ \"name\": \"Ada Lovelace\", \"role\": \"engineer\" }",
+    "response": { "status": 200, "body": "{ \"id\": 42, \"name\": \"Ada Lovelace\", \"role\": \"engineer\" }" }
+  },
+  {
+    "method": "PATCH",
+    "description": "Partially update an existing resource with only the provided fields.",
+    "safe": false,
+    "idempotent": false,
+    "template": "PATCH /users/{id}",
+    "example": "PATCH /users/42",
+    "body": "{ \"role\": \"researcher\" }",
+    "response": { "status": 200, "body": "{ \"id\": 42, \"name\": \"Ada Lovelace\", \"role\": \"researcher\" }" }
+  },
+  {
+    "method": "DELETE",
+    "description": "Remove a resource from the server.",
+    "safe": false,
+    "idempotent": true,
+    "template": "DELETE /users/{id}",
+    "example": "DELETE /users/42",
+    "body": null,
+    "response": { "status": 204, "body": null }
+  },
+  {
+    "method": "HEAD",
+    "description": "Same as GET but returns only headers, no body. Useful for checking existence.",
+    "safe": true,
+    "idempotent": true,
+    "template": "HEAD /users/{id}",
+    "example": "HEAD /users/42",
+    "body": null,
+    "response": { "status": 200, "body": null }
+  },
+  {
+    "method": "OPTIONS",
+    "description": "Describes the communication options (allowed methods) for the target resource.",
+    "safe": true,
+    "idempotent": true,
+    "template": "OPTIONS /users",
+    "example": "OPTIONS /users",
+    "body": null,
+    "response": { "status": 200, "body": "Allow: GET, POST, HEAD, OPTIONS" }
+  }
+]

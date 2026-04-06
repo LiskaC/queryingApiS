@@ -1,0 +1,32 @@
+[
+  {
+    "label": "GET request",
+    "note": "Fetch requires a second step to parse JSON. Axios unwraps it automatically.",
+    "fetch": "const res = await fetch('/api/users')\nconst data = await res.json()",
+    "axios": "const { data } = await axios.get('/api/users')"
+  },
+  {
+    "label": "POST with JSON body",
+    "note": "Fetch needs manual headers and JSON.stringify. Axios handles both for you.",
+    "fetch": "const res = await fetch('/api/users', {\n  method: 'POST',\n  headers: { 'Content-Type': 'application/json' },\n  body: JSON.stringify({ name: 'Ada' }),\n})\nconst data = await res.json()",
+    "axios": "const { data } = await axios.post('/api/users', {\n  name: 'Ada',\n})"
+  },
+  {
+    "label": "Error handling",
+    "note": "Fetch only rejects on network failure — a 404 or 500 still resolves. Axios throws on any non-2xx status.",
+    "fetch": "const res = await fetch('/api/users/99')\nif (!res.ok) {\n  throw new Error(`HTTP error: ${res.status}`)\n}\nconst data = await res.json()",
+    "axios": "// throws automatically on 4xx / 5xx\nconst { data } = await axios.get('/api/users/99')"
+  },
+  {
+    "label": "Base URL",
+    "note": "Fetch has no built-in concept of a base URL. Axios instances let you set one once and reuse it.",
+    "fetch": "const BASE = 'https://api.example.com'\n\nconst res = await fetch(`${BASE}/users`)\nconst data = await res.json()",
+    "axios": "const api = axios.create({\n  baseURL: 'https://api.example.com',\n})\n\nconst { data } = await api.get('/users')"
+  },
+  {
+    "label": "Timeout",
+    "note": "Fetch has no timeout option — you must wire up AbortController manually. Axios takes a single number.",
+    "fetch": "const controller = new AbortController()\nconst id = setTimeout(() => controller.abort(), 5000)\n\nconst res = await fetch('/api/users', {\n  signal: controller.signal,\n})\nclearTimeout(id)\nconst data = await res.json()",
+    "axios": "const { data } = await axios.get('/api/users', {\n  timeout: 5000,\n})"
+  }
+]
