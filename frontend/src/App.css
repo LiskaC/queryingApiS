@@ -732,6 +732,20 @@
   font-size: 13px;
 }
 
+/* ── Your Tab ── */
+#your-tab {
+  padding: 32px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.your-tab {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 24px;
+}
+
 /* ── Fetch vs Axios tab ── */
 #fva-tab {
   padding: 32px;

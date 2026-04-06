@@ -6,6 +6,7 @@ import Responses from './views/Responses'
 import Demo from './views/InReact'
 import './App.css'
 import PublicApiTask from './views/PublicApiTask'
+import YourTab from './views/YourTab'
 
 type Tab =
   | 'rest-methods'
@@ -14,6 +15,7 @@ type Tab =
   | 'responses'
   | 'demo'
   | 'public-apis'
+  | 'your-tab'
 
 function App() {
   const [tab, setTab] = useState<Tab>('rest-methods')
@@ -53,6 +55,12 @@ function App() {
           onClick={() => setTab('public-apis')}
         >
           Public APIs
+        </button>
+        <button
+          className={tab === 'your-tab' ? 'tab active' : 'tab'}
+          onClick={() => setTab('your-tab')}
+        >
+          <b>YOUR TAB</b> ✏️
         </button>
       </nav>
 
@@ -95,6 +103,12 @@ function App() {
         <section id='public-apis-tab'>
           <h1>Public APIs</h1>
           <PublicApiTask />
+        </section>
+      )}
+
+      {tab === 'your-tab' && (
+        <section id='your-tab'>
+          <YourTab />
         </section>
       )}
     </>

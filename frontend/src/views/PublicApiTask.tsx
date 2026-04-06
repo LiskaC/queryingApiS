@@ -74,6 +74,13 @@ export default function PublicApiTask() {
     <div className='task-page'>
       <p className='task-intro'>
         Use one or more APIs below to fetch and display data in your own React app.
+        <br />
+        Do this either:
+        <ul>
+          <li>"On Click" as in `InReact.tsx`</li>
+          <li>"On Mount/Load" as in `FetchVsAxios.tsx`</li>
+        </ul>
+        Work in the "YOUR TAB" component.
       </p>
 
       <div className='task-api-list'>
