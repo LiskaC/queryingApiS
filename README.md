@@ -9,18 +9,20 @@ git clone <paste the repo URL here>
 cd queryingApiS
 ```
 
+Then, open two terminal windows — one for the backend, one for the frontend:
+
 ### 2. Install dependencies
 
 You need to install separately for the backend and the frontend.
 
-**Backend:**
+**Terminal 1 — Backend:**
 
 ```bash
 cd backend
 npm install
 ```
 
-**Frontend:**
+**Terminal 2 — Frontend:**
 
 ```bash
 cd frontend
@@ -28,8 +30,6 @@ npm install
 ```
 
 ### 3. Run the project
-
-You need to open two terminal windows — one for the backend, one for the frontend.
 
 **Terminal 1 — Backend:**
 Run:
